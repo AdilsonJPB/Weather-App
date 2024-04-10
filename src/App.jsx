@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import fetchData from './services/api';
 // Importa o objeto initialData do arquivo 'initialData.js' no diretório 'helpers'.
 import initialData from './helpers/initialData';
+
 // Importa o componente Card do arquivo 'Card.js' no diretório 'components'.
 import Card from './components/Card';
 
@@ -13,7 +14,7 @@ function App() {
   // Define o estado 'city' para armazenar o nome da cidade digitado pelo usuário. O useState define o estado inicial como uma string vazia.
   const [city, setCity] = useState('');
   // Define o estado 'data' para armazenar os dados da cidade. O useState define o estado inicial com os dados iniciais do objeto 'initialData'.
-  const [data, setData] = useState({ initialData });
+  const [data, setData] = useState(initialData);
   
   // Define a função handleSubmit para lidar com o envio do formulário.
   const handleSubmit = (event) => {
@@ -49,8 +50,7 @@ function App() {
       </form>
 
       {/* Componente Card para exibir os dados da cidade */}
-      <Card data={data}/>
-
+      <Card data={data} />
     </div>
   );
 }

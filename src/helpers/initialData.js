@@ -3,8 +3,8 @@ const initialData = {
     // Informações sobre a localização (nome, região e país) inicializadas com "-" (vazio).
     location: {
         name: '-',
-        region: '-',
-        country: '-',
+        region: '--',
+        country: '--',
     },
     // Informações sobre as condições meteorológicas atuais (temperatura e condição do tempo).
     current: {
@@ -12,7 +12,7 @@ const initialData = {
         temp_c: 0,
         // Condição do tempo inicializada com um texto e um ícone padrão.
         condition: {
-            text: '-', // Texto da condição meteorológica inicializado com "-" (vazio).
+            text: '--', // Texto da condição meteorológica inicializado com "-" (vazio).
             // Ícone da condição meteorológica inicializado com um URL para uma imagem padrão.
             icon: '//cdn.weatherapi.com/weather/64x64/night/353.png',
         },

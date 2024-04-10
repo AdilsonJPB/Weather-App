@@ -4,12 +4,12 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 // Define o componente funcional Card, que recebe um objeto 'data' como argumento.
-function Card(data) {
-    // Desestrutura o objeto 'data' para extrair as propriedades 'location' e 'current'.
-    const {
-        location,
-        current,
-    } = data;
+function Card({ data }) {
+    const { location, current } = data || {};
+    if (!location || !current) {
+        return <div>Dados não disponíveis</div>;
+    }
+    // Restante do componente
 
     // Retorna a estrutura JSX do cartão.
     return (
@@ -28,17 +28,17 @@ function Card(data) {
 
             <div className='flex justify-center flex-col items-center'>
                 {/* Exibe o ícone e a condição meteorológica atual */}
-                <span className='block'>{current.condition.icon}</span>
-                <span className='text-slate-700 font-bold'>{current.condition.icon}</span>
+                <img className='block' src={current.condition.icon} />
+                <span className='text-slate-700 font-bold'>{current.condition.text}</span>
             </div>
         </div>
     );
 }
 
-// Exporta o componente Card para ser utilizado em outros arquivos.
-export default Card;
-
 // Define as propriedades necessárias e seus tipos esperados usando propTypes.
 Card.propTypes = {
-    data: propTypes.object, // Define 'data' como um objeto.
-}.isRequired; // Indica que 'data' é uma propriedade obrigatória.
+    data: propTypes.object.isRequired, // Define 'data' como um objeto.
+}; // Indica que 'data' é uma propriedade obrigatória.
+
+// Exporta o componente Card para ser utilizado em outros arquivos.
+export default Card;
